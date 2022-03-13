@@ -20,7 +20,7 @@ const Icons = styled.div`
 
 const Line = styled.span`
     width:2px;
-    height: 8rem;
+    height: 6rem;
     background-color: ${props => props.theme.text};
 `
 
@@ -28,16 +28,22 @@ const SocialIcons = () => {
     return(
         <Icons>
             <div>
-                <NavLink style={{color: 'inherit'}} to={{pathname:"omart.co.ke"}}>
+                <NavLink style={{color: 'inherit'}} target="_blank" to={{pathname:"omart.co.ke"}}>
                     <Github width={25} height={25} fill='currentColor' target="_blank"/>
                 </NavLink>
-                <NavLink style={{color: 'inherit'}} to={{pathname:"omart.co.ke"}}>
+            </div>
+            <div>
+                <NavLink style={{color: 'inherit'}} target="_blank" to={{pathname:"omart.co.ke"}}>
                     <Twitter width={25} height={25} fill='currentColor' target="_blank"/>
                 </NavLink>
-                <NavLink style={{color: 'inherit'}} to={{pathname:"omart.co.ke"}}>
+                </div>
+            <div>
+                <NavLink style={{color: 'inherit'}} target="_blank" to={{pathname:"omart.co.ke"}}>
                     <Facebook width={25} height={25} fill='currentColor' target="_blank"/>
                 </NavLink>
-                <NavLink style={{color: 'inherit'}} to={{pathname:"omart.co.ke"}}>
+                </div>
+            <div>
+                <NavLink style={{color: 'inherit'}} target="_blank" to={{pathname:"omart.co.ke"}}>
                     <YouTube width={25} height={25} fill='currentColor' target="_blank"/>
                 </NavLink>
             </div>
