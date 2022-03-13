@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import LogoComponent from '../subComponents/LogoComponent';
 import PowerButton from '../subComponents/PowerButton';
 import SocialIcons from '../subComponents/SocialIcons';
+import { YinYang } from './AllSvgs';
 
 const MainContainer = styled.div`
 background: ${props => props.theme.body};
@@ -32,15 +33,47 @@ const Contact = styled(NavLink)`
 
 `
 const BLOG = styled(NavLink)`
-    color: ${props => props.theme.text}
-    position:absolute;
-    top:50%;
-    right: calc(1rem + 2vw);
-    transform:rotate(90deg) translate(-50%, -50%);
-    text-decoration:none;
-    z-index:1;
+        color: ${props => props.theme.text};
+        position: absolute;
+        top:50%;
+        right: calc(1rem + 2vw);
+        transform: rotate(90deg) translate(-50%, -50%);
+        text-decoration:none;
+        z-index:1;
+`
+const WORK = styled(NavLink)`
+        color: ${props => props.theme.text};
+        position: absolute;
+        top:50%;
+        left:calc(1rem + 2vw);
+        transform:  translate(-50%, -50%) rotate(-90deg);
+        text-decoration:none;
+        z-index:1;
 
+`
+const BottomBar = styled.div`
+        position: absolute;
+        bottom:1rem;   
+        left:0;
+        right:0;
+        width:100%;
 
+        display: flex;
+        justify-content:space-evenly;
+
+` 
+const ABOUT = styled(NavLink)`
+        color: ${props => props.theme.text};
+        text-decoration:none;
+        z-index:1;
+`
+const SKILLS = styled(NavLink)`
+        color: ${props => props.theme.text};
+        text-decoration:none;
+        z-index:1;
+`
+const Center = styled.button`
+        
 `
 
 const Main = () => {
@@ -50,19 +83,40 @@ const Main = () => {
                 <PowerButton />
                 <LogoComponent />
                 <SocialIcons />
-                
+                <Center>
+                    <YinYang with={150} height={150} fill={currentColor} />
+                    <span>Click here</span>
+                </Center>
 
-                <Contact target="_blank" to={{pathname:"mailto:jacobmoracha@gmail.com"}}>
-                    <h3>
+                <Contact target="_blank" to=
+                    {{ pathname: "mailto:jacobmoracha@gmail.com" }}>
+                    <h2>
                         say hi ......
-                    </h3>
+                    </h2>
                 </Contact>
                 
                 <BLOG to="/blog">
-                    <h3>
+                    <h2>
                         Blog
-                    </h3>
+                    </h2>
                 </BLOG>
+                <WORK to="/work">
+                    <h2>
+                        My Work
+                    </h2>
+                </WORK>
+                <BottomBar>
+                    <ABOUT to ="/about">
+                        <h2>
+                            About Me
+                        </h2>
+                    </ABOUT>
+                    <SKILLS to="mySkills">
+                        <h2>
+                            My Skills
+                        </h2>
+                    </SKILLS>
+                </BottomBar>
 
             </Container>          
         </MainContainer>
