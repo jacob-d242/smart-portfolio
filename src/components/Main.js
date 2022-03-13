@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import styled from 'styled-components'
+import { useState } from 'react/cjs/react.development';
+import styled, { keyframes } from 'styled-components'
 import LogoComponent from '../subComponents/LogoComponent';
 import PowerButton from '../subComponents/PowerButton';
 import SocialIcons from '../subComponents/SocialIcons';
@@ -42,7 +43,7 @@ const BLOG = styled(NavLink)`
         z-index:1;
 `
 const WORK = styled(NavLink)`
-        color: ${props => props.theme.text};
+        color:${props => props.click ? props.theme.body : props.theme.text};
         position: absolute;
         top:50%;
         left:calc(1rem + 2vw);
@@ -63,7 +64,7 @@ const BottomBar = styled.div`
 
 ` 
 const ABOUT = styled(NavLink)`
-        color: ${props => props.theme.text};
+        color: ${props => props.click ? props.theme.body : props.theme.text};
         text-decoration:none;
         z-index:1;
 `
@@ -72,19 +73,62 @@ const SKILLS = styled(NavLink)`
         text-decoration:none;
         z-index:1;
 `
-const Center = styled.button`
-        
-`
 
+const rotate = keyframes`
+from{
+    transform: rotate(0);
+}
+to{
+    transform: rotate(360deg);
+}
+`
+const Center = styled.button`
+        position: absolute;
+        top:${props => props.click ? '85%' : '50%'};
+        left:${props => props.click ? '92%' : '50%'};
+        transform: translate(-50%, -50%);
+        border:none;
+        outline:none;
+        background-color:transparent;
+        cursor:pointer;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 1s ease;
+
+        &>:first-child{
+            animation:${rotate} infinite 1.5s linear;
+        }
+        &>:last-child{
+            display:${props => props.click ? 'none' : 'inline-block'}
+            padding-top:45rem;
+        }
+        `
+const DarkDiv = styled.div`
+        position: absolute;
+        top: 0;
+        background-color:#000;
+        bottom: 0;
+        right:50%;
+        width:${props => props.click ? '50%': '0%'};
+        height:${props => props.click ? '100%': '0%'};
+        z-index:1;
+        transition: height 0.5s ease, width 1s ease 0.5s;
+`
 const Main = () => {
+    const [click, setClick] = useState(false);
+    const handleClick =()=>setClick(!click);
     return (
         <MainContainer>
+             <DarkDiv click={ click}/>
             <Container>
                 <PowerButton />
                 <LogoComponent />
-                <SocialIcons />
-                <Center>
-                    <YinYang with={150} height={150} fill={currentColor} />
+                <SocialIcons theme={click ? 'dark' : 'light'} />
+                <Center click={click} >
+                    <YinYang onClick={()=>handleClick()} with={click ? 120 : 200} height={click ? 120 : 200}  />
                     <span>Click here</span>
                 </Center>
 
@@ -100,13 +144,13 @@ const Main = () => {
                         Blog
                     </h2>
                 </BLOG>
-                <WORK to="/work">
+                <WORK to="/work" click={ click}>
                     <h2>
                         My Work
                     </h2>
                 </WORK>
                 <BottomBar>
-                    <ABOUT to ="/about">
+                    <ABOUT to ="/about" click={ click}>
                         <h2>
                             About Me
                         </h2>
