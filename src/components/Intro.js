@@ -16,16 +16,16 @@ const Box = styled.div`
     background-repeat: no-repeat;
     background-size:100% 2px;
     background: linear-gradient(
-        to right,
-        ${props => props.theme.body} 50%,
-        ${ props => props.theme.text } 50% ) bottom,
+        to left,
+            ${props => props.theme.text} 50%,
+            ${props => props.theme.body} 50%) bottom,
         linear-gradient( 
-        to right,
-        ${props => props.theme.body} 50%,
-        ${props => props.theme.text} 50%) top;
+            to left,
+            ${props => props.theme.text} 50%,
+            ${ props => props.theme.body } 50% ) top ;
 
-        border-right: 2px solid ${props => props.theme.body}
-        border-left: 2px solid ${props => props.theme.text}
+            border-left: 2px solid ${props => props.theme.text}
+            border-right: 2px solid ${props => props.theme.body}
         
         z-index:1;
     

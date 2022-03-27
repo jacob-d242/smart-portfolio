@@ -129,7 +129,7 @@ const Main = () => {
                 <LogoComponent  theme={click ? 'dark' : 'light'}/>
                 <SocialIcons theme={click ? 'dark' : 'light'} />
                 <Center click={click} >
-                    <YinYang onClick={()=>handleClick()} with={click ? 120 : 200} height={click ? 120 : 200}  />
+                    <YinYang onClick={()=>handleClick()} with={click ? 120 : 200} height={click ? 120 : 200 }  fill='currentColor'  />
                     <span>Click here</span>
                 </Center>
 
