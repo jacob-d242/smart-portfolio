@@ -1,4 +1,5 @@
 import React from 'react';
+import {motion } from 'framer-motion'
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react/cjs/react.development';
 import styled, { keyframes } from 'styled-components'
@@ -135,31 +136,48 @@ const Main = () => {
 
                 <Contact target="_blank" to=
                     {{ pathname: "mailto:jacobmoracha@gmail.com" }}>
-                    <h2>
+                    <motion.h2
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9}}
+                        
+                    >
                         say hi ......
-                    </h2>
+                    </motion.h2>
                 </Contact>
                 
                 <BLOG to="/blog">
-                    <h2>
+                    <motion.h2
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9}}
+                    >
                         Blog
-                    </h2>
+                    </motion.h2>
                 </BLOG>
                 <WORK to="/work" click={ click}>
-                    <h2>
+                    <motion.h2
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9}}
+                        
+                    >
                         My Work
-                    </h2>
+                    </motion.h2>
                 </WORK>
                 <BottomBar>
                     <ABOUT to ="/about" click={ click}>
-                        <h2>
+                        <motion.h2
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9}}
+                        >
                             About Me
-                        </h2>
+                        </motion.h2>
                     </ABOUT>
                     <SKILLS to="mySkills">
-                        <h2>
+                        <motion.h2
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9}}
+                        >
                             My Skills
-                        </h2>
+                        </motion.h2>
                     </SKILLS>
                 </BottomBar>
 
