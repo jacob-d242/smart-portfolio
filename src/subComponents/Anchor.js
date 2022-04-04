@@ -1,4 +1,4 @@
-import react from 'react';
+import react, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -11,7 +11,7 @@ const Slider = styled.div`
     top:0;
     right:2rem;
 `
-const Anchor = () => {
+const AnchorComponent = () => {
     const ref = useRef(null);
     const hiddenRef = useRef(null);
 
@@ -29,4 +29,4 @@ const Anchor = () => {
     )
 }
 
-export default Anchor;
+export default AnchorComponent;
