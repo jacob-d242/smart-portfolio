@@ -7,7 +7,7 @@ import Main from './components/Main';
 import BlogPage from './components/BlogPage';
 import AboutPage from './components/AboutPage';
 import WorkPage from './components/WorkPage';
-import MySkillsPage from './components/MySkillsPage';
+import mySkills from './components/MySkillsPage';
 
 function App() {
   return <>
@@ -19,7 +19,7 @@ function App() {
         <Route exact path="/about" component={AboutPage} />
         <Route exact path="/blog" component={BlogPage} />
         <Route exact path="/work" component={WorkPage} />
-        <Route exact path="skills/" component={MySkillsPage} />
+        <Route exact path="/myskills" component={mySkills} />
       </Switch>
     </ThemeProvider>
     </>

@@ -171,7 +171,7 @@ const Main = () => {
                             About Me
                         </motion.h2>
                     </ABOUT>
-                    <SKILLS to="mySkills">
+                    <SKILLS to="/mySkills">
                         <motion.h2
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.9}}
